@@ -1,3 +1,6 @@
+Purpose:
+Displays closing prices of stocks typed into search bar within the past 6 months.
+
 Deployed: [website](https://stock-chart-app.netlify.app/)
 
 # Getting Started with Create React App
