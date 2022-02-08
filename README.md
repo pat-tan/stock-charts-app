@@ -1,4 +1,4 @@
-https://stock-chart-app.netlify.app/
+Deployed: [website](https://stock-chart-app.netlify.app/)
 
 # Getting Started with Create React App
 
