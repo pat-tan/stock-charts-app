@@ -8,57 +8,28 @@ import UserContext from './contexts/UserContext.js'
 import './App.css';
 
 const App = () => {
-  const [userInput, setUserInput ] = useState('')
+  const [userInput, setUserInput] = useState('')
   const [user, setUser] = useState('')
-  const [stockData, setStockData] = useState([])
+  // const [stockTicker, setStockTicker] = useState('')
+  // const [stockXValues, setStockXValues] = useState([])
+  // const [stockYValues, setStockYValues] = useState([])
+  // const [stockColor, setStockColor] = useState('')
 
 
-  
-  // // // const [dataY, setDataY] = useState([])
-
-  // // const handleChange = (e) => {
-  // //   // console.log('handling change', e.target.value)
-  // //   setUserInput(e.target.value)
-
-  // // }
-
-  // useEffect( () => {
-  //     fetchStock()
-
-  // }, [])
-
-  // const fetchStock = async () => {
-  //     try {
-  //         // const API_KEY = 'HGJWFG4N8AQ66ICD';
-  //         // let StockSymbol = 'FB';
-          
-  //         const API_KEY = 'DXUHU5Z7K50G5V03';
-          
-  //         // const response = await axios.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=FB&outputsize=compact&apikey=${API_KEY}")
-  //         const response = await axios.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&outputsize=full&apikey=demo")
-
-  //         console.log("before res")
-  //         console.log(response.data)
-  //         console.log(response.data['Time Series (Daily)'])
-  //         setStockData(response.data['Time Series (Daily)'])
-  //         console.log("before SD")
-
-  //     } catch (error) {
-  //         console.log(error)
-  //     }
-      
-  // }
-  // console.log('App', user)
-  // console.log({stockData})
+  const handleChange = (e) => {
+    // console.log('handling change', e.target.value)
+    e.target.value = ("" + e.target.value).toUpperCase();
+    setUserInput(e.target.value)
+  }
 
 
   return (
     <div className="App">
       <UserContext.Provider value={user}>
-        <Nav />
+        <Nav handleChange={handleChange} />
         <Routes>
-            <Route path='/' element={<Home />} />
-            {/* <Route path='stock' element={<Stock stockData= {stockData} />} /> */}
+          <Route path='/' element={<Home userInput={userInput} />} />
+          {/* <Route path='stock' element={<Stock stockData= {stockData} />} /> */}
         </Routes>
       </UserContext.Provider>
 

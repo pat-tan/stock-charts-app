@@ -1,17 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-
-const Nav = () => {
+import { Link } from 'react-router-dom';
+// import './styles.css';
+import { useContext } from 'react';
+import UserContext from '../../contexts/UserContext';
+ 
+const Nav = ({ handleChange }) => {
+   const user = useContext(UserContext);  
     
+   return (
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="container-fluid" >
+                    <Link className="navbar-brand" to="/">Stock Charts App</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-    // Below we will use Link from react router to replace all of our anchor tags. We replace the href from <a> to "to"
-    return (
-        <nav>
-            {/* React router dom way of doing anchor tags <a> */}
-            <Link to='/'>Home</Link>
-            {/* <Link to='stock'>Stock</Link> */}
-            {/* <Link to='giphy'>Giphy</Link> */}
-        </nav>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="photos" > Facebook</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link" to="videos" > Apple</Link>
+                            </li>
+                                                        
+                            {/* <li className="nav-item">
+                            <Link className="nav-link" to="login">Login</Link> 
+                              </li>  
+                             
+                             {!user? null:
+                            <li className="nav-item">
+                                <Link className="nav-link" to="favorites"> Favorites </Link>
+                            </li>  } */}
+                        </ul>                        
+                    </div>
+                    
+                    <div className='searchbar'>                        
+                        <input className="form-control me-2" type="search" placeholder= "search..." onChange={handleChange}/>
+                        {/* <button className="btn btn-outline-success" onClick={fetchStock}> Search </button> */}
+
+                    </div>
+                 
+                </div>
+            </nav>
     );
 }
 
