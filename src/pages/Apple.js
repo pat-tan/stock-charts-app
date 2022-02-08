@@ -2,8 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import Plot from 'react-plotly.js';
 
-
-const Home = ({ userInput }) => {
+const Apple = ( { userInput } ) => {
 
     
     const [stockXValues, setStockXValues] = useState([])
@@ -11,13 +10,8 @@ const Home = ({ userInput }) => {
     
 
     useEffect(() => {
-        const delayDebounceFn = setTimeout(() => {
-            console.log(userInput)
-            fetchStock()
-          }, 2500)
-
-        return () => clearTimeout(delayDebounceFn)
-    }, [ userInput ])
+        fetchStock()
+    }, [])
 
 
     const fetchStock = async () => {
@@ -26,13 +20,14 @@ const Home = ({ userInput }) => {
             // let StockSymbol = 'FB';
 
             const API_KEY = 'HGJWFG4N8AQ66ICD';
+            userInput ='AAPL'
 
             const URL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${userInput}&outputsize=compact&apikey=${API_KEY}`
 
 
             const response = await axios.get(URL)
 
-            console.log(response.data)
+            // console.log(response.data)
             
             let stockChartX = [];
             let stockChartY = [];
@@ -72,7 +67,7 @@ const Home = ({ userInput }) => {
                         height: window.innerHeight / 1.69,
                         width: window.innerWidth,
                         // title: this.state.stockTicker,
-                        title: userInput,
+                        title: 'AAPL',
                         paper_bgcolor: "#00000000",
                         plot_bgcolor: "#00000000",
                         displayModeBar: false,
@@ -88,4 +83,4 @@ const Home = ({ userInput }) => {
     );
 }
 
-export default Home;
+export default Apple;

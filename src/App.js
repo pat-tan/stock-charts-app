@@ -3,6 +3,10 @@ import { Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import Nav from './components/Nav'
 import Home from './pages/Home'
+import Facebook from './pages/Facebook'
+import Apple from './pages/Apple'
+
+
 // import Stock from './Stock';
 import UserContext from './contexts/UserContext.js'
 import './App.css';
@@ -29,7 +33,8 @@ const App = () => {
         <Nav handleChange={handleChange} />
         <Routes>
           <Route path='/' element={<Home userInput={userInput} />} />
-          {/* <Route path='stock' element={<Stock stockData= {stockData} />} /> */}
+          <Route path='/facebook' element={<Facebook />} />
+          <Route path='/apple' element={<Apple />} />
         </Routes>
       </UserContext.Provider>
 

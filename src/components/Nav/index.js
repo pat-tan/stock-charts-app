@@ -17,11 +17,11 @@ const Nav = ({ handleChange }) => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="photos" > Facebook</Link>
+                                <Link className="nav-link" to="facebook" > Facebook</Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="videos" > Apple</Link>
+                                <Link className="nav-link" to="apple" > Apple</Link>
                             </li>
                                                         
                             {/* <li className="nav-item">
